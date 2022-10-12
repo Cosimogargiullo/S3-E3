@@ -21,19 +21,23 @@ document.getElementById('persona1').innerHTML = calcolaEta('Anna', 2022, 30);
 document.getElementById('persona2').innerHTML = calcolaEta('Maria', 2022, 24);
 
 // QUARTA PARTE
-function torta() {
-    var ricetta = `Torta con ${torta2()*3} fette di mela e ${torta2()*5} fette di arancia.`;
-    return ricetta;
+function fettaTorta(torta) {
+    return torta * 3;
 }
-function torta2() {
-    var fette = 3;
-    return fette;
+function scegliTorta(mela, arancia) {
+    const fetteMela = fettaTorta(mela);
+    const fetteArancia = fettaTorta(arancia);
+
+    const torta = `Torta con ${fetteMela} fette di mela e ${fetteArancia} fette di arancia`;
+    return torta;
 }
-document.getElementById('torta').innerHTML = torta();
+
+document.getElementById('torta').innerHTML = scegliTorta(3, 10);
 
 // QUINTA PARTE
 document.getElementById('calcola').addEventListener("click", function(){
-    document.getElementById('totale').innerHTML += risultato()
+    document.getElementById('totale').innerHTML = 'Il totale spesa è: ';
+    document.getElementById('totale').innerHTML += risultato();
 });
 
 function risultato() {
